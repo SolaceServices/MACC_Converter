@@ -81,7 +81,10 @@ function processCSV(file) {
         app_metadata: {
           branch_name: row["Branch Name"] || "",
           branch_name_path: row["Branch Name Path"] || "",
+          branch_code: row["Branch Code"] || "",
           level: row["Level"] || "user",
+          pu_profile: row["PU Profile"] || "",
+          force_password_change: row["Force Password Change"] || "",
         },
         user_metadata: {
           language: row["Language"] || "english",
