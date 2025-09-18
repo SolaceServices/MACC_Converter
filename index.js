@@ -82,6 +82,7 @@ function processCSV(file) {
           branch_name: row["Branch Name"] || "",
           branch_name_path: row["Branch Name Path"] || "",
           branch_code: row["Branch Code"] || "",
+          branch_code_path: row["Branch Code Path"] || "",
           level: row["Level"] || "user",
           pu_profile: row["PU Profile"] || "",
           force_password_change: row["Force Password Change"] || "",
