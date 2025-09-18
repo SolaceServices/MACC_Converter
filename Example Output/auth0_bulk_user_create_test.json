@@ -1,0 +1,20 @@
+[
+  {
+    "email": "eric.shantz+1@solace.com",
+    "email_verified": false,
+    "given_name": "Eric",
+    "family_name": "Shantz",
+    "name": "Eric Shantz",
+    "nickname": "Eric",
+    "password": "Citi2025!",
+    "app_metadata": {
+      "branch_name": "Citigroup",
+      "branch_name_path": "Citi 2025 MACC",
+      "level": "user"
+    },
+    "user_metadata": {
+      "language": "english",
+      "timezone": "America/Chicago"
+    }
+  }
+]

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSV to JSON Converter</title>
+
+    <!-- PapaParse CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">CSV to JSON Converter</h1>
+
+        <div class="converter-layout">
+            <!-- CSV Input Panel -->
+            <div class="panel csv-panel" id="csvPanel">
+                <div class="panel-content">
+                    <div id="uploadState">
+                        <div class="icon-circle upload-icon-circle">
+                            <svg class="icon upload-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                            </svg>
+                        </div>
+                        <h3 class="panel-title">Upload CSV File</h3>
+                        <p class="panel-text">Drag and drop your CSV file here, or click to browse</p>
+                        <button class="upload-button" onclick="fileInput.click()">Choose File</button>
+                    </div>
+
+                    <div id="fileState" class="hidden">
+                        <div class="panel-content">
+                            <div class="icon-circle success-icon-circle">
+                                <svg class="icon success-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <circle cx="12" cy="12" r="9" stroke-width="2" />
+                                    <path d="M9 12l2 2l4-4" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <h3 class="panel-title">File Uploaded</h3>
+                            <div class="file-info">
+                                <p class="file-name" id="fileName"></p>
+                                <p class="file-size" id="fileSize"></p>
+                            </div>
+                            <div id="progressBar" class="hidden">
+                                <div class="progress-bar">
+                                    <div class="progress-fill"></div>
+                                </div>
+                                <p class="progress-text">Processing...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <input type="file" id="fileInput" accept=".csv" class="hidden" />
+            </div>
+
+            <!-- Arrow -->
+            <div class="arrow">
+                <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </div>
+
+            <!-- JSON Output Panel -->
+            <div class="panel json-panel">
+                <div class="json-content">
+                    <div class="json-preview">
+                        <div id="emptyState">
+                            <div class="panel-content">
+                                <div class="icon-circle json-icon-circle">
+                                    <svg class="icon json-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                                    </svg>
+                                </div>
+                                <p class="panel-text">JSON will appear here</p>
+                            </div>
+                        </div>
+
+                        <div id="jsonPreview" class="hidden">
+                            <pre class="json-code" id="jsonCode"></pre>
+                        </div>
+                    </div>
+
+                    <div id="downloadSection" class="download-section hidden">
+                        <button class="download-button" onclick="downloadJSON()">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            Download JSON
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="errorMessage" class="error-message hidden"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="index.js"></script>
+</body>
+
+</html>

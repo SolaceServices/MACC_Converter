@@ -1,0 +1,242 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #f9fafb;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.container {
+  width: 100%;
+  max-width: 1200px;
+}
+.title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  text-align: center;
+  color: #1f2937;
+  margin-bottom: 3rem;
+}
+.converter-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+}
+.panel {
+  width: 450px;
+  height: 450px;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: all 0.3s ease;
+}
+.csv-panel {
+  border: 2px dashed #d1d5db;
+  cursor: pointer;
+}
+.csv-panel:hover {
+  border-color: #9ca3af;
+}
+.csv-panel.drag-over {
+  border-color: #06b6d4;
+  background-color: #ecfeff;
+}
+.csv-panel.file-uploaded {
+  border-color: #10b981;
+  background-color: #ecfdf5;
+}
+.json-panel {
+  border: 2px solid #e5e7eb;
+  overflow: hidden;
+}
+.panel-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.icon-circle {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.upload-icon-circle {
+  background-color: #e0f2fe;
+}
+.success-icon-circle {
+  background-color: #dcfce7;
+}
+.json-icon-circle {
+  background-color: #f3f4f6;
+}
+.icon {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+}
+.upload-icon {
+  color: #0891b2;
+}
+.success-icon {
+  color: #059669;
+}
+.json-icon {
+  color: #9ca3af;
+}
+.panel-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+.panel-text {
+  font-size: 0.875rem;
+  color: #6b7280;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.upload-button {
+  padding: 0.5rem 1rem;
+  background-color: #0891b2;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.upload-button:hover {
+  background-color: #0e7490;
+}
+.file-info {
+  text-align: center;
+}
+.file-name {
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin-bottom: 0.5rem;
+}
+.file-size {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+.progress-bar {
+  width: 100%;
+  height: 0.5rem;
+  background-color: #e5e7eb;
+  border-radius: 0.25rem;
+  margin-top: 1rem;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background-color: #0891b2;
+  border-radius: 0.25rem;
+  animation: pulse 2s infinite;
+}
+.progress-text {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-top: 0.5rem;
+}
+.arrow {
+  opacity: 0.4;
+  color: #9ca3af;
+}
+.json-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.json-preview {
+  flex: 1;
+  padding: 1.5rem;
+  overflow: auto;
+}
+.json-code {
+  font-size: 0.75rem;
+  color: #4b5563;
+  background-color: #f9fafb;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  overflow: auto;
+  height: auto;
+  white-space: pre;
+  font-family: "Courier New", monospace;
+}
+.download-section {
+  padding: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+.download-button {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s;
+}
+.download-button:hover {
+  background-color: #1d4ed8;
+}
+.error-message {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 0.5rem;
+  color: #dc2626;
+  font-size: 0.875rem;
+}
+.hidden {
+  display: none;
+}
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+@media (min-width: 1024px) {
+  .converter-layout {
+    flex-direction: row;
+  }
+  .arrow {
+    transform: rotate(0deg);
+  }
+}
+@media (max-width: 1023px) {
+  .arrow {
+    transform: rotate(90deg);
+  }
+  .panel {
+    width: 100%;
+    max-width: 450px;
+  }
+}
